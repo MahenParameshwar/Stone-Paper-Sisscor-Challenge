@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:600,700&display=swap');
+
+*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background:radial-gradient(circle at 50%, hsl(214, 47%, 23%) , hsl(237, 49%, 15%));
+    background-repeat: no-repeat;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+}
+
+main{
+    height: 100vh;
+    width: 100vw;
+    padding-top: 46px;
+}
+
+header{
+    max-width: 700px;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 5px;
+    padding: 0 25px 0 30px;
+}
+
+header > .choice{
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    line-height:0.8 
+}
+
+.score-container{
+    width: 150px;
+    text-align: center;
+    color: hsl(229, 64%, 46%);
+    letter-spacing: 1.2px;
+    font-weight: 100;
+    background-color: white;
+    padding: 20px 0;
+    border-radius: 5px;
+    
+}
+
+
+.score{
+    font-size: 45px;
+    font-weight: bold;
+    color: hsl(229, 25%, 31%);
+}
+
+.button-container{
+
+    max-width: 490px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-image: url("images/bg-triangle.svg"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 65px;
+    
+}
+
+.button-container > div{
+    height: 200px;
+    width: 200px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px -10px 3px -3px rgb(0,0,0,0.4);
+    justify-self: center;
+}
+
+button:not(.rules){
+    height: 152px;
+    width: 152px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    box-shadow: inset 0px 10px 3px -3px rgb(0,0,0,0.4);
+}
+
+.button-paper{
+    background: linear-gradient(to bottom,hsl(230, 89%, 62%) , hsl(230, 89%, 65%));
+}
+
+.button-scissors{
+    background: linear-gradient(to bottom ,hsl(39, 89%, 49%) , hsl(40, 84%, 53%));
+    
+}
+
+.button-rock{
+    background: linear-gradient(to bottom,hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+    margin: 0 auto;
+}
+
+footer{
+    width: 100vw;
+    font-weight: 100;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+footer > button{
+    letter-spacing: 2px;
+    width: 132px;
+    height: 40px;
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid hsl(217, 16%, 45%);
+    background: transparent;
+    color: white;
+    outline: none;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    margin-right: 32px;
+}
