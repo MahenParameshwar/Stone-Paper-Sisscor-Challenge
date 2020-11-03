@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main>
+    
         <header>
             <div class="choice">
                 <span>Rock</span>
@@ -16,30 +16,35 @@
             </div>
             <div class="score-container">
                 <h5 class="score-text">Score</h5>
-                <div id="score" class="score">12</div>
+                <div id="score" class="score">0</div>
             </div>
         </header>
         <section class="button-container">
             
                 <div class="button-paper">
-                    <button>
+                    <button class="btn-circle" data-choice="paper">
                         <img src="images/icon-paper.svg" />
                     </button>
                 </div>
                 <div class="button-scissors">
-                    <button> 
+                    <button class="btn-circle" data-choice="scissors"> 
                         <img src="images/icon-scissors.svg" />
                     </button>
                 </div>
-                <div class="button-rock">
-                    <button> 
+                <div class="button-rock" >
+                    <button class="btn-circle" data-choice="rock"> 
                         <img src="images/icon-rock.svg" />
                     </button>
                 </div>
         </section>
+        <section class="result-container hide">
+                <div class="result">
+
+                </div>
+        </section>
         <footer>
-            <button class="rules">Rules</button>
+            <button class="rules">RULES</button>
         </footer>
-    </main>
+        <script src="app.js"></script>
 </body>
 </html>

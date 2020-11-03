@@ -15,13 +15,9 @@ body{
     color: white;
     height: 100vh;
     width: 100vw;
+    padding-top: 65px;
 }
 
-main{
-    height: 100vh;
-    width: 100vw;
-    padding-top: 46px;
-}
 
 header{
     max-width: 700px;
@@ -75,10 +71,9 @@ header > .choice{
     
 }
 
-.button-container > div{
+.button-container > div , .result-container > div .result-btn{
     height: 200px;
     width: 200px;
-    background-color: black;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -87,13 +82,18 @@ header > .choice{
     justify-self: center;
 }
 
-button:not(.rules){
+button{
+    border: none;
+}
+
+button:not(.rules):not(.playBtn){
     height: 152px;
     width: 152px;
     border-radius: 50%;
     outline: none;
     border: none;
     box-shadow: inset 0px 10px 3px -3px rgb(0,0,0,0.4);
+    cursor: pointer;
 }
 
 .button-paper{
@@ -102,34 +102,221 @@ button:not(.rules){
 
 .button-scissors{
     background: linear-gradient(to bottom ,hsl(39, 89%, 49%) , hsl(40, 84%, 53%));
-    
 }
 
 .button-rock{
     background: linear-gradient(to bottom,hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+}
+
+.button-container .button-rock{
     margin: 0 auto;
 }
 
 footer{
-    width: 100vw;
     font-weight: 100;
     font-size: 14px;
     letter-spacing: 1px;
-    position: relative;
+    text-align: right;
+    padding-right:30px ;
+    
 }
 
-footer > button{
+footer > button.rules{
     letter-spacing: 2px;
     width: 132px;
     height: 40px;
-    vertical-align: middle;
     text-align: center;
     border: 2px solid hsl(217, 16%, 45%);
     background: transparent;
     color: white;
     outline: none;
     border-radius: 5px;
-    position: absolute;
-    right: 0;
-    margin-right: 32px;
+    cursor: pointer;
+}
+
+.result-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 75px;
+    animation: moveFinal 0.7s linear forwards;
+}
+
+.result-container .result-btn{
+    margin-top: 30px;
+}
+
+.result-container > div .winner{
+    box-shadow: inset 0px -10px 3px -3px rgb(0,0,0,0.4),
+                0px 0px 3px 20px rgba(99, 99, 99, 0.1),
+                0px 0px 5px 50px rgba(99, 99, 99, 0.1),
+                0px 0px 3px 80px rgba(99, 99, 99, 0.1);
+                
+                
+}
+
+.left{
+    animation: moveLeft 0.7s linear;
+}
+
+.right{
+    animation: moveRight 0.7s linear;
+}
+
+.pick-heading{
+    margin-bottom: 65px;
+    font-size: 18px;
+}
+
+.winning-message{
+    font-size: 42px;
+    margin-bottom: 22px;
+}
+
+.playBtn{
+    width: 200px;
+    height: 48px;
+    border-radius: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color:  hsl(214, 47%, 23%);
+    outline: none;
+    cursor: pointer;
+}
+
+
+@keyframes moveLeft{
+    0%{
+        transform: translate(0);
+    }
+    100%{
+        transform: translateX(-45%);
+    }
+}
+
+
+@keyframes moveRight{
+    0%{
+        transform: translate(0);
+    }
+    100%{
+        transform: translateX(45%);
+    }
+}
+
+
+@keyframes moveFinal{
+    100%{
+        justify-content: space-between;
+    }
+}
+
+img{
+    pointer-events: none;
+}
+
+.hide{
+    display: none;
+}
+
+.result-container button{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        padding:30px 40px;
+
+    }
+    header{
+        max-width: 600px;
+        height: 150px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        border: 2px solid hsl(217, 16%, 45%);
+        border-radius: 5px;
+        padding: 0 25px 0 30px;
+    }
+
+    .button-container{
+        margin-top: 30px;
+    }
+
+    .button-container > div{
+        transform: scale(0.8);
+    }
+    
+    .result-container .result-btn{
+        transform: scale(0.6);
+        grid-area: result-btn;
+    }
+
+    .result-container{
+        display: grid;
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 30px;
+        grid-template-areas: 
+                            "user  computer"
+                            "result result";
+    }
+
+    .left , .right{
+        display: grid;
+        grid-template-areas: 
+                            "result-btn"
+                            "heading";
+    }
+
+    .left{
+        grid-area: user;
+        animation: moveLeft 0.4s linear;
+        
+    }
+
+    .right{
+        grid-area: computer;
+        animation: moveRight 0.4s linear;
+        
+    }
+
+    .pick-heading{
+        grid-area: heading;
+        margin-bottom: 40px;
+    }
+
+    .result{
+        grid-area: result;
+    }
+
+    footer{
+        text-align: center;
+        padding-top: 30px;
+        padding-right:0px ;
+    }
+
+    @keyframes moveLeft{
+        0%{
+            transform: translate(0);
+        }
+        100%{
+            transform: translateX(-20%);
+        }
+    }
+    
+    
+    @keyframes moveRight{
+        0%{
+            transform: translate(0);
+        }
+        100%{
+            transform: translateX(20%);
+        }
+    }
 }
