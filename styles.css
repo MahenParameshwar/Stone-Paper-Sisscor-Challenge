@@ -7,14 +7,19 @@
 }
 
 body{
-    font-family: 'Barlow Semi Condensed', sans-serif;
-    background:radial-gradient(circle at 50%, hsl(214, 47%, 23%) , hsl(237, 49%, 15%));
-    background-repeat: no-repeat;
+    font-family: 'Barlow Semi Condensed', sans-serif;    
     text-transform: uppercase;
     font-weight: bold;
     color: white;
     height: 100vh;
     width: 100vw;
+    
+}
+
+.container{
+    height: inherit;
+    background:radial-gradient(circle at 50%, hsl(214, 47%, 23%) , hsl(237, 49%, 15%));
+    background-repeat: no-repeat;
     padding-top: 65px;
 }
 
@@ -60,14 +65,15 @@ header > .choice{
 .button-container{
 
     max-width: 490px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
     margin: 0 auto;
     background-image: url("images/bg-triangle.svg"); 
     background-repeat: no-repeat;
     background-position: center;
+    grid-template-areas: "paper sciccors"
+                        "rock rock";
     margin-top: 65px;
+
     
 }
 
@@ -80,6 +86,7 @@ header > .choice{
     justify-content: center;
     box-shadow: inset 0px -10px 3px -3px rgb(0,0,0,0.4);
     justify-self: center;
+    transform: scale(0.85);
 }
 
 button{
@@ -98,32 +105,34 @@ button:not(.rules):not(.playBtn){
 
 .button-paper{
     background: linear-gradient(to bottom,hsl(230, 89%, 62%) , hsl(230, 89%, 65%));
+    grid-area: paper;
 }
 
 .button-scissors{
     background: linear-gradient(to bottom ,hsl(39, 89%, 49%) , hsl(40, 84%, 53%));
+    grid-area: sciccors;
 }
 
 .button-rock{
     background: linear-gradient(to bottom,hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+    grid-area: rock;
 }
 
-.button-container .button-rock{
-    margin: 0 auto;
-}
+
 
 footer{
     font-weight: 100;
     font-size: 14px;
     letter-spacing: 1px;
     text-align: right;
-    padding-right:30px ;
+    margin-top: 30px;
+    padding-right: 35px;
     
 }
 
 footer > button.rules{
     letter-spacing: 2px;
-    width: 132px;
+    width: 140px;
     height: 40px;
     text-align: center;
     border: 2px solid hsl(217, 16%, 45%);
@@ -154,8 +163,6 @@ footer > button.rules{
                 0px 0px 3px 20px rgba(99, 99, 99, 0.1),
                 0px 0px 5px 50px rgba(99, 99, 99, 0.1),
                 0px 0px 3px 80px rgba(99, 99, 99, 0.1);
-                
-                
 }
 
 .left{
@@ -227,8 +234,8 @@ img{
 }
 
 @media screen and (max-width: 600px) {
-    body{
-        padding:30px 40px;
+    .container{
+        padding:30px 0px 0px 0px;
 
     }
     header{
@@ -245,11 +252,27 @@ img{
 
     .button-container{
         margin-top: 30px;
-    }
+        max-width: 600px;
+        grid-template-areas: "paper sciccors"
+                            "rock rock";
+}
 
     .button-container > div{
-        transform: scale(0.8);
+    transform: scale(0.8);
     }
+
+    .button-paper{
+    grid-area: paper;
+    }
+
+    .button-scissors{
+    grid-area: sciccors;
+    }
+
+    .button-rock{
+    grid-area: rock;
+    }
+
     
     .result-container .result-btn{
         transform: scale(0.6);
@@ -258,7 +281,6 @@ img{
 
     .result-container{
         display: grid;
-        text-align: center;
         max-width: 600px;
         margin: 0 auto;
         margin-top: 30px;
@@ -293,12 +315,14 @@ img{
 
     .result{
         grid-area: result;
+        
     }
 
     footer{
-        text-align: center;
-        padding-top: 30px;
-        padding-right:0px ;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     @keyframes moveLeft{
@@ -319,4 +343,36 @@ img{
             transform: translateX(20%);
         }
     }
+}
+
+@media screen and (max-width: 400px){
+    .button-container{
+        max-width: 400px;
+        display: grid;
+        justify-content: center;
+        margin: 0 auto;
+        background-image: url("images/bg-triangle.svg"); 
+        background-repeat: no-repeat;
+        background-position: center;
+        grid-template-areas: "paper sciccors"
+                            "rock rock";
+    }
+
+    .button-container > div{
+        transform: scale(0.6);
+    }
+
+    .button-paper{
+        grid-area: paper;
+    }
+    
+    .button-scissors{
+        grid-area: sciccors;
+    }
+    
+    .button-rock{
+        grid-area: rock;
+    }
+    
+    
 }
