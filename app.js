@@ -1,8 +1,17 @@
 const choice = ["rock","paper","scissors"]
 
+
 window.onload = ()=>{
+    const rulesContainer = document.getElementById('rules');
+    const rulesBtn = document.getElementById('rules-btn');
+
     document.querySelector('.button-container').addEventListener('click',findWinner)
-    
+    rulesContainer.addEventListener('click',()=>{
+        rulesContainer.classList.toggle('hide')
+    });
+    rulesBtn.addEventListener('click',()=>{
+        rulesContainer.classList.toggle('hide')
+    })
 }
 
 computerChoice = () => choice[Math.floor(Math.random() * choice.length)]
