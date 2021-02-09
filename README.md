@@ -16,7 +16,7 @@ The design was inspired by https://www.frontendmentor.io/challenges/rock-paper-s
 <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png"></code>
 
 ## Demo
-![gif](./images/scp.gif)
+![gif](./images/spc.gif)
 
 
  ### Link
